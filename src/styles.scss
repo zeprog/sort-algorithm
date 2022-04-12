@@ -1,0 +1,124 @@
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.header {
+  position: relative;
+  z-index: 1;
+  height: 10vh;
+  background: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &__title {
+    color: #fff;
+  }
+}
+
+.sidebar {
+  width: 25%;
+  background: #f7f7f7;
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  height: 100%;
+  &__content {
+    margin-top: 7vw;
+    text-align: center;
+  }
+  &__select {
+    width: 75%;
+    padding: 0.5vw;
+    outline: none;
+  }
+  &__select-box {
+    display: flex;
+    width: 75%;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .select-box__options-container {
+    background: #2f3640;
+    color: #f5f6fa;
+    max-height: 0;
+    width: 100%;
+    opacity: 0;
+    transition: all 0.4s;
+    border-radius: 8px;
+    overflow: hidden;
+    
+    order: 1;
+    &.active {
+      max-height: 240px;
+      opacity: 1;
+      & + .select-box__selected::after {
+        transform: rotateX(180deg);
+        top: -6px;
+      }
+    }
+    &::-webkit-scrollbar {
+      width: 8px;
+      background: #0d141f;
+      border-radius: 0 8px 8px 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #525861;
+      border-radius: 0 8px 8px 0;
+    }
+    .select-box__option {
+      cursor: pointer;
+      &:hover {
+        background: #414b57;
+      }
+      .select-box__radio {
+        display: none;
+      }
+    }
+    label {
+      cursor: pointer;
+      width: 100%;
+      display: block;
+      padding: 0.5vw;
+    }
+  }
+  .select-box__selected {
+    background: #2f3640;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    padding: 0.5vw;
+    color: #f5f6fa;
+    position: relative;
+    cursor: pointer;
+    order: 0;
+    &::after {
+      content: "";
+      background: url("static/arrow-down.png");
+      background-size: contain;
+      background-repeat: no-repeat;
+      position: absolute;
+      height: 100%;
+      width: 1.5vw;
+      right: 10px;
+      top: 5px;
+    
+      transition: all 0.4s;
+    }
+  }
+}
+
+
+.main {
+  margin-left: 25%;
+  &__container {
+    display: flex;
+  }
+  &__button {
+    cursor: pointer;
+    margin: 1vw 1vw 0 1vw;
+  }
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.scss">
+  <title>Document</title>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Visualization of sorting algorithms</h1>
+  </header>
+  <main>
+    <div class="sidebar">
+      <div class="sidebar__content">
+        <h3 class="sidebar__title">Settings:</h3>
+        <h4>Select sort type</h4>
+        <div class="sidebar__select-box">
+          <div class="select-box__options-container">
+            <div class="select-box__option">
+              <input
+                checked
+                value="combSort"
+                type="radio"
+                class="select-box__radio"
+                id="comb"
+                name="sort-type"
+              />
+              <label for="comb">Comb sort</label>
+            </div>
+            <div class="select-box__option">
+              <input
+                value="bubbleSort"
+                type="radio"
+                class="select-box__radio"
+                id="bubble"
+                name="sort-type"
+              />
+              <label for="bubble">Bubble sort</label>
+            </div>
+            <div class="select-box__option">
+              <input
+                value="cocktailSort"
+                type="radio"
+                class="select-box__radio"
+                id="cocktail"
+                name="sort-type"
+              />
+              <label for="cocktail">Cocktail sort</label>
+            </div>
+          </div>
+          <div class="select-box__selected">
+            Comb sort
+          </div>
+        </div>
+        <div class="sidebar__inputs-block">
+          <div>Lines height</div>
+          <input type="range" id="lines-height" min="40" max="150" step="1" value="75" >
+          <div>Number of elements</div>
+          <input type="range" id="elements-number" min="1" max="240" step="1" value="125">
+          <div for="speed">Speed</div>
+          <input type="range" min="10" max="200" id="speed" step="5" value="105">
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <div class="main__container">
+        <div class="play-button main__button">
+          <img src="./static/start.png" id="start-button" alt="">
+        </div>
+        <div class="reset-button main__button">
+          <img src="./static/stop.png" id="reset-button" alt="">
+        </div>
+      </div>
+      <div class="main__sort">
+        <canvas id="canvas" width="900" height="500"></canvas>
+      </div>
+    </div>
+  </main>
+</body>
+<script src="./index.js" type="module"></script>
+</html>
